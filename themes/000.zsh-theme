@@ -208,7 +208,7 @@ prompt_hg() {
 # Dir: current working directory
 prompt_dir() {
   add_blank
-  prompt_segment 134 231 ' %~ '
+  prompt_segment 134 231 ' 🗂  %~ '
   add_blank
 }
 
@@ -260,3 +260,4 @@ build_prompt() {
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
+RPROMPT='%F{228}[%D{%H:%M:%S}]%f'
