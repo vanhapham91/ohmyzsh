@@ -71,11 +71,6 @@ prompt_segment() {
   CURRENT_BG=$1
   [[ -n $3 ]] && echo -n "$3"
 }
-
-add_blank() {
-  prompt_segment black black ""
-}
-
 # End the prompt, closing any open segments
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
@@ -207,9 +202,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  add_blank
   prompt_segment 134 231 ' 🗂  %~ '
-  add_blank
 }
 
 # Virtualenv: current working virtualenv
@@ -259,5 +252,5 @@ build_prompt() {
   prompt_end
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt) '
+PROMPT='%{%f%b%k%}$(build_prompt) $ '
 RPROMPT='%F{228}[%D{%H:%M:%S}]%f'
